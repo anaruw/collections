@@ -3,9 +3,7 @@ package ru.netology.managers;
 import ru.netology.data.Player;
 import ru.netology.exceptions.NotRegisteredException;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Game {

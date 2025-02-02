@@ -7,9 +7,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 import ru.netology.data.Player;
 import ru.netology.exceptions.NotRegisteredException;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Map;
 
 public class GameTest {
