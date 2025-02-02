@@ -19,9 +19,6 @@ public class GameTest {
     Player player3 = new Player(111, "Мурзик", 1);
     Player notRegisteredPlayer = new Player(22, "Читер", 54);
 
-//    Player playerWithExistingId = new Player(3, "Заяц", 32);
-//    Player playerWithExistingName = new Player(45, "Вася", 2);
-
     @Test
     public void registerTest() {
 
@@ -73,30 +70,4 @@ public class GameTest {
             game.round(playerName1, playerName2);
         });
     }
-//
-//    @Test
-//    public void registerTestWithExistingId() {
-//
-//        Game game = new Game();
-//
-//        game.register(player1);
-//
-//        Assertions.assertThrows(AlreadyExistsException.class, ()->{
-//
-//            game.register(playerWithExistingId);
-//        });
-//    }
-//
-//    @Test
-//    public void registerTestWithExistingName() {
-//
-//        Game game = new Game();
-//
-//        game.register(player1);
-//
-//        Assertions.assertThrows(AlreadyExistsException.class, ()->{
-//
-//            game.register(playerWithExistingName);
-//        });
-//    }
 }

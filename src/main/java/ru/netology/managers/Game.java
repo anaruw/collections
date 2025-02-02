@@ -11,16 +11,7 @@ public class Game {
     private List<Player> players = new ArrayList<>();
 
     public void register(Player player) {
-//
-//        for (Player registered: players) {
-//
-//            if (player.getName().equals(registered.getName())) {
-//                throw new AlreadyExistsException(player.getName());
-//            }
-//            if (registered.getId() == player.getId()) {
-//                throw new AlreadyExistsException(player.getId());
-//            }
-//        }
+
         players.add(player);
     }
 
