@@ -3,50 +3,39 @@ package ru.netology.managers;
 import ru.netology.data.Player;
 import ru.netology.exceptions.NotRegisteredException;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Game {
 
-    private List<Player> players = new ArrayList<>();
+    private Map<String, Integer> players = new HashMap<>();
 
     public void register(Player player) {
 
-        players.add(player);
+        players.put(player.getName(), player.getStrength());
     }
 
-    public List<Player> registeredList() {
+    public Map<String, Integer> registeredList() {
         return players;
     }
 
     public int round(String playerName1, String playerName2) {
 
-        Player player1 = null;
-        Player player2 = null;
+        if (players.containsKey(playerName1) && players.containsKey(playerName2)) {
 
-        for (Player player : players) {
-
-            if (player1 == null) {
-
-                if (playerName1.equals(player.getName())) {
-                    player1 = player;
-                    continue;
-                }
+            if (players.get(playerName1) == players.get(playerName2)) {
+                return 0;
+            } else {
+                return (players.get(playerName1) > players.get(playerName2)) ? 1 : 2;
             }
-            if (player2 == null) {
-                player2 = (playerName2.equals(player.getName())) ? player : null;
-            }
-        }
-        if (player1 == null) {
-            throw new NotRegisteredException(playerName1);
-        }
-        if (player2 == null) {
-            throw new NotRegisteredException(playerName2);
-        }
-        if (player1.getStrength() == player2.getStrength()) {
-            return 0;
         } else {
-            return (player1.getStrength() > player2.getStrength()) ? 1 : 2;
+            if (!players.containsKey(playerName1)) {
+
+                throw new NotRegisteredException(playerName1);
+            } else {
+
+                throw new NotRegisteredException(playerName2);
+            }
         }
     }
 }
