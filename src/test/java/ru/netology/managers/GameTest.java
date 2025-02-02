@@ -10,6 +10,7 @@ import ru.netology.exceptions.NotRegisteredException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class GameTest {
 
@@ -24,14 +25,18 @@ public class GameTest {
 
         Game game = new Game();
 
+        Assertions.assertTrue(game.registeredList().isEmpty());
+
         game.register(player1);
-        game.register(player2);
-        game.register(player3);
 
-        List<Player> expected = new ArrayList<>(Arrays.asList(player1, player2, player3));
-        List<Player> actual = game.registeredList();
+        Map<String, Integer> expected = Map.ofEntries(
+                Map.entry(player1.getName(), player1.getStrength())
+        );
+        Map<String, Integer> actual = game.registeredList();
 
-        Assertions.assertIterableEquals(expected, actual);
+        Assertions.assertEquals(expected.size(), actual.size());
+        Assertions.assertTrue(actual.containsKey(player1.getName()));
+        Assertions.assertEquals(expected.get(player1.getName()), actual.get(player1.getName()));
     }
 
     @ParameterizedTest
